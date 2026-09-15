@@ -1,0 +1,21 @@
+{
+  "name": "Fake Store API PUT",
+  "description": "",
+  "method": "PUT",
+  "url": "https://fakestoreapi.com/products/1",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "title": "updated product",
+    "price": 25,
+    "description": "fully updated",
+    "image": "https://example.com/image.jpg",
+    "category": "electronics"
+  },
+  "auth": "None",
+  "expected_status": 200,
+  "source_catalog_id": 4,
+  "source_service": "Fake Store API",
+  "resource": "/products"
+}

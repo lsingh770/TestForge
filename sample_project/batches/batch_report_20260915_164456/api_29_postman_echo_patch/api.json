@@ -1,0 +1,17 @@
+{
+  "name": "Postman Echo PATCH",
+  "description": "",
+  "method": "PATCH",
+  "url": "https://postman-echo.com/patch",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "sampleKey": "patchedValue"
+  },
+  "auth": "None",
+  "expected_status": 200,
+  "source_catalog_id": 6,
+  "source_service": "Postman Echo",
+  "resource": "/"
+}

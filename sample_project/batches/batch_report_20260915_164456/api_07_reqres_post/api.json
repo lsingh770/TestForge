@@ -1,0 +1,19 @@
+{
+  "name": "ReqRes POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://reqres.in/api/users",
+  "headers": {
+    "Content-Type": "application/json",
+    "x-api-key": "reqres-free-v1"
+  },
+  "body": {
+    "name": "morpheus",
+    "job": "leader"
+  },
+  "auth": "Header: x-api-key: reqres-free-v1",
+  "expected_status": 201,
+  "source_catalog_id": 2,
+  "source_service": "ReqRes",
+  "resource": "/users"
+}

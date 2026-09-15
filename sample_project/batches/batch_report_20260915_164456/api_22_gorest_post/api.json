@@ -1,0 +1,21 @@
+{
+  "name": "GoRest POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://gorest.co.in/public/v2/users",
+  "headers": {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer YOUR_TOKEN"
+  },
+  "body": {
+    "name": "Test User",
+    "email": "testuser123@example.com",
+    "gender": "male",
+    "status": "active"
+  },
+  "auth": "Header: Authorization: Bearer {your_free_token}",
+  "expected_status": 201,
+  "source_catalog_id": 5,
+  "source_service": "GoRest",
+  "resource": "/users"
+}

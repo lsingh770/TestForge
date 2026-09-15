@@ -1,0 +1,200 @@
+{
+  "api": {
+    "name": "JSON Server (typicode demo) PUT",
+    "description": "",
+    "method": "PUT",
+    "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "title": "Updated Post",
+      "views": 500
+    },
+    "auth": "None (read-only for the public demo; writes are simulated, not persisted)",
+    "expected_status": 200,
+    "source_catalog_id": 11,
+    "source_service": "JSON Server (typicode demo)",
+    "resource": "/posts"
+  },
+  "tests": [
+    {
+      "id": "TC-001",
+      "name": "valid_request",
+      "category": "positive",
+      "method": "PUT",
+      "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Updated Post",
+        "views": 500
+      },
+      "assertions": [
+        "assert response.status_code == 200",
+        "assert request.method == 'PUT'",
+        "assert response is not None"
+      ],
+      "priority": "P1",
+      "metadata": {
+        "test_id": "TC-001",
+        "category": "positive",
+        "priority": "P1",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-002",
+      "name": "missing_required_fields",
+      "category": "negative",
+      "method": "PUT",
+      "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {},
+      "assertions": [
+        "assert response.status_code == 400",
+        "assert response is not None"
+      ],
+      "priority": "P0",
+      "metadata": {
+        "test_id": "TC-002",
+        "category": "negative",
+        "priority": "P0",
+        "severity": "P1",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-003",
+      "name": "invalid_field_value",
+      "category": "negative",
+      "method": "PUT",
+      "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "",
+        "views": 500
+      },
+      "assertions": [
+        "assert response.status_code == 400",
+        "assert response is not None"
+      ],
+      "priority": "P1",
+      "metadata": {
+        "test_id": "TC-003",
+        "category": "negative",
+        "priority": "P1",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-004",
+      "name": "boundary_values",
+      "category": "boundary",
+      "method": "PUT",
+      "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "x",
+        "views": 500
+      },
+      "assertions": [
+        "assert response.status_code == 200",
+        "assert request.method == 'PUT'"
+      ],
+      "priority": "P2",
+      "metadata": {
+        "test_id": "TC-004",
+        "category": "boundary",
+        "priority": "P2",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-005",
+      "name": "duplicate_or_replay_request",
+      "category": "idempotency",
+      "method": "PUT",
+      "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Updated Post",
+        "views": 500
+      },
+      "assertions": [
+        "assert response.status_code == 200",
+        "assert response is not None"
+      ],
+      "priority": "P2",
+      "metadata": {
+        "test_id": "TC-005",
+        "category": "idempotency",
+        "priority": "P2",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-006",
+      "name": "unauthorized_request",
+      "category": "security",
+      "method": "PUT",
+      "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Updated Post",
+        "views": 500
+      },
+      "assertions": [
+        "assert response.status_code == 401",
+        "assert response is not None"
+      ],
+      "priority": "P0",
+      "metadata": {
+        "test_id": "TC-006",
+        "category": "security",
+        "priority": "P0",
+        "severity": "P1",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    }
+  ]
+}

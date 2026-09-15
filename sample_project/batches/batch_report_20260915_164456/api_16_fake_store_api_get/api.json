@@ -1,0 +1,15 @@
+{
+  "name": "Fake Store API GET",
+  "description": "",
+  "method": "GET",
+  "url": "https://fakestoreapi.com/products/1",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": null,
+  "auth": "None",
+  "expected_status": 200,
+  "source_catalog_id": 4,
+  "source_service": "Fake Store API",
+  "resource": "/products"
+}

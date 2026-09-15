@@ -1,0 +1,17 @@
+{
+  "name": "JSONPlaceholder PATCH",
+  "description": "",
+  "method": "PATCH",
+  "url": "https://jsonplaceholder.typicode.com/posts/1",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "title": "patched title only"
+  },
+  "auth": "None",
+  "expected_status": 200,
+  "source_catalog_id": 1,
+  "source_service": "JSONPlaceholder",
+  "resource": "/posts"
+}

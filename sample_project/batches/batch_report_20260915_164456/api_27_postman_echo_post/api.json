@@ -1,0 +1,17 @@
+{
+  "name": "Postman Echo POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://postman-echo.com/post",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "sampleKey": "sampleValue"
+  },
+  "auth": "None",
+  "expected_status": 201,
+  "source_catalog_id": 6,
+  "source_service": "Postman Echo",
+  "resource": "/"
+}

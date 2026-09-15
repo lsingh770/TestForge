@@ -1,0 +1,19 @@
+{
+  "name": "ReqRes PUT",
+  "description": "",
+  "method": "PUT",
+  "url": "https://reqres.in/api/users/2",
+  "headers": {
+    "Content-Type": "application/json",
+    "x-api-key": "reqres-free-v1"
+  },
+  "body": {
+    "name": "morpheus",
+    "job": "zion resident"
+  },
+  "auth": "Header: x-api-key: reqres-free-v1",
+  "expected_status": 200,
+  "source_catalog_id": 2,
+  "source_service": "ReqRes",
+  "resource": "/users"
+}

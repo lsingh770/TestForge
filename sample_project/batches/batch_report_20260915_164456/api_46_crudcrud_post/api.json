@@ -1,0 +1,19 @@
+{
+  "name": "CrudCrud POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://crudcrud.com/api/{unique_id}/items",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "name": "Test Item",
+    "quantity": 5,
+    "inStock": true
+  },
+  "auth": "None (unique URL from crudcrud.com acts as the key)",
+  "expected_status": 201,
+  "source_catalog_id": 10,
+  "source_service": "CrudCrud",
+  "resource": "/items"
+}

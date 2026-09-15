@@ -1,0 +1,25 @@
+{
+  "name": "Restful-Booker PUT",
+  "description": "",
+  "method": "PUT",
+  "url": "https://restful-booker.herokuapp.com/booking/1 (requires auth token cookie)",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "firstname": "James",
+    "lastname": "Brown",
+    "totalprice": 222,
+    "depositpaid": false,
+    "bookingdates": {
+      "checkin": "2026-02-01",
+      "checkout": "2026-02-05"
+    },
+    "additionalneeds": "Lunch"
+  },
+  "auth": "Token via POST /auth, then header: Cookie: token={token}",
+  "expected_status": 200,
+  "source_catalog_id": 9,
+  "source_service": "Restful-Booker",
+  "resource": "/booking"
+}

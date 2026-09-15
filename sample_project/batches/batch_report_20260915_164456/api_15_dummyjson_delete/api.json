@@ -1,0 +1,15 @@
+{
+  "name": "DummyJSON DELETE",
+  "description": "",
+  "method": "DELETE",
+  "url": "https://dummyjson.com/products/1",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": null,
+  "auth": "None",
+  "expected_status": 204,
+  "source_catalog_id": 3,
+  "source_service": "DummyJSON",
+  "resource": "/products"
+}

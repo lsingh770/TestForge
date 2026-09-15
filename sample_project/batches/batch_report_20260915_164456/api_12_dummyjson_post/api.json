@@ -1,0 +1,19 @@
+{
+  "name": "DummyJSON POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://dummyjson.com/products/add",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "title": "BMW Pencil",
+    "price": 20,
+    "category": "stationery"
+  },
+  "auth": "None",
+  "expected_status": 201,
+  "source_catalog_id": 3,
+  "source_service": "DummyJSON",
+  "resource": "/products"
+}

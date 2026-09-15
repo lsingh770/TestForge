@@ -1,0 +1,16 @@
+{
+  "name": "ReqRes GET",
+  "description": "",
+  "method": "GET",
+  "url": "https://reqres.in/api/users/2",
+  "headers": {
+    "Content-Type": "application/json",
+    "x-api-key": "reqres-free-v1"
+  },
+  "body": null,
+  "auth": "Header: x-api-key: reqres-free-v1",
+  "expected_status": 200,
+  "source_catalog_id": 2,
+  "source_service": "ReqRes",
+  "resource": "/users"
+}

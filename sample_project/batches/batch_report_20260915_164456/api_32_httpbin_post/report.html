@@ -1,0 +1,222 @@
+<!doctype html>
+    <html>
+      <head><meta charset="utf-8"><title>TestForge report</title>
+      <style>
+        body { font-family: Arial; padding: 24px; background: #f6f8fb; color: #1f2937; }
+        .dashboard { max-width: 1200px; margin: 0 auto; }
+        h1 { margin-bottom: 8px; }
+        .cards { display: flex; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+        .card { background: white; border-radius: 12px; padding: 20px; min-width: 140px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); display: flex; flex-direction: column; }
+        .card strong { font-size: 12px; text-transform: uppercase; color: #6b7280; }
+        .card span { font-size: 28px; margin-top: 8px; }
+        .success { border-left: 6px solid #16a34a; }
+        .danger { border-left: 6px solid #dc2626; }
+        .result-card { background: white; border-radius: 12px; padding: 20px; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+        .payload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; white-space: pre-wrap; word-break: break-word; }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+      </style>
+      </head>
+      <body>
+      <div class="dashboard">
+        <h1>TestForge API Report</h1>
+        
+    <div class="cards">
+      <div class="card"><strong>Total</strong><span>6</span></div>
+      <div class="card success"><strong>Passed</strong><span>0</span></div>
+      <div class="card danger"><strong>Failed</strong><span>6</span></div>
+    </div>
+    
+        
+            <section class="result-card">
+              <h2>TC-001 — valid_request</h2>
+              <p><strong>Category:</strong> positive &nbsp; <strong>Priority:</strong> P1 &nbsp; <strong>Status:</strong> <span class="fail">FAIL</span> &nbsp; <strong>HTTP:</strong> 200</p>
+              <div class="payload-grid">
+                <div>
+                  <h3>Request</h3>
+                  <pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/post&quot;,
+  &quot;headers&quot;: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+  },
+  &quot;body&quot;: {
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value2&quot;
+  }
+}</pre>
+                </div>
+                <div>
+                  <h3>Response</h3>
+                  <pre>{
+  &quot;status_code&quot;: 200,
+  &quot;response_text&quot;: &quot;{\n  \&quot;args\&quot;: {}, \n  \&quot;data\&quot;: \&quot;{\\\&quot;key1\\\&quot;: \\\&quot;value1\\\&quot;, \\\&quot;key2\\\&quot;: \\\&quot;value2\\\&quot;}\&quot;, \n  \&quot;files\&quot;: {}, \n  \&quot;form\&quot;: {}, \n  \&quot;headers\&quot;: {\n    \&quot;Accept\&quot;: \&quot;*/*\&quot;, \n    \&quot;Accept-Encoding\&quot;: \&quot;gzip, deflate\&quot;, \n    \&quot;Content-Length\&quot;: \&quot;36\&quot;, \n    \&quot;Content-Type\&quot;: \&quot;application/json\&quot;, \n    \&quot;Host\&quot;: \&quot;httpbin.org\&quot;, \n    \&quot;User-Agent\&quot;: \&quot;python-requests/2.34.2\&quot;, \n    \&quot;X-Amzn-Trace-Id\&quot;: \&quot;Root=1-6aa976ce-529539131989999d79fa6506\&quot;\n  }, \n  \&quot;json\&quot;: {\n    \&quot;key1\&quot;: \&quot;value1\&quot;, \n    \&quot;key2\&quot;: \&quot;value2\&quot;\n  }, \n  \&quot;origin\&quot;: \&quot;49.36.138.210\&quot;, \n  \&quot;url\&quot;: \&quot;https://httpbin.org/post\&quot;\n}\n&quot;,
+  &quot;error&quot;: &quot;&quot;
+}</pre>
+                </div>
+              </div>
+              <p><strong>Assertions:</strong> assert response.status_code == 201, assert request.method == &#x27;POST&#x27;, assert response is not None</p>
+              <p><strong>Error:</strong> </p>
+            </section>
+            
+
+            <section class="result-card">
+              <h2>TC-002 — missing_required_fields</h2>
+              <p><strong>Category:</strong> negative &nbsp; <strong>Priority:</strong> P0 &nbsp; <strong>Status:</strong> <span class="fail">FAIL</span> &nbsp; <strong>HTTP:</strong> 200</p>
+              <div class="payload-grid">
+                <div>
+                  <h3>Request</h3>
+                  <pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/post&quot;,
+  &quot;headers&quot;: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+  },
+  &quot;body&quot;: {}
+}</pre>
+                </div>
+                <div>
+                  <h3>Response</h3>
+                  <pre>{
+  &quot;status_code&quot;: 200,
+  &quot;response_text&quot;: &quot;{\n  \&quot;args\&quot;: {}, \n  \&quot;data\&quot;: \&quot;{}\&quot;, \n  \&quot;files\&quot;: {}, \n  \&quot;form\&quot;: {}, \n  \&quot;headers\&quot;: {\n    \&quot;Accept\&quot;: \&quot;*/*\&quot;, \n    \&quot;Accept-Encoding\&quot;: \&quot;gzip, deflate\&quot;, \n    \&quot;Content-Length\&quot;: \&quot;2\&quot;, \n    \&quot;Content-Type\&quot;: \&quot;application/json\&quot;, \n    \&quot;Host\&quot;: \&quot;httpbin.org\&quot;, \n    \&quot;User-Agent\&quot;: \&quot;python-requests/2.34.2\&quot;, \n    \&quot;X-Amzn-Trace-Id\&quot;: \&quot;Root=1-6aa976cf-18b67f6e20331a584dbcb408\&quot;\n  }, \n  \&quot;json\&quot;: {}, \n  \&quot;origin\&quot;: \&quot;49.36.138.210\&quot;, \n  \&quot;url\&quot;: \&quot;https://httpbin.org/post\&quot;\n}\n&quot;,
+  &quot;error&quot;: &quot;&quot;
+}</pre>
+                </div>
+              </div>
+              <p><strong>Assertions:</strong> assert response.status_code == 400, assert response is not None</p>
+              <p><strong>Error:</strong> </p>
+            </section>
+            
+
+            <section class="result-card">
+              <h2>TC-003 — invalid_field_value</h2>
+              <p><strong>Category:</strong> negative &nbsp; <strong>Priority:</strong> P1 &nbsp; <strong>Status:</strong> <span class="fail">FAIL</span> &nbsp; <strong>HTTP:</strong> 200</p>
+              <div class="payload-grid">
+                <div>
+                  <h3>Request</h3>
+                  <pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/post&quot;,
+  &quot;headers&quot;: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+  },
+  &quot;body&quot;: {
+    &quot;key1&quot;: &quot;&quot;,
+    &quot;key2&quot;: &quot;value2&quot;
+  }
+}</pre>
+                </div>
+                <div>
+                  <h3>Response</h3>
+                  <pre>{
+  &quot;status_code&quot;: 200,
+  &quot;response_text&quot;: &quot;{\n  \&quot;args\&quot;: {}, \n  \&quot;data\&quot;: \&quot;{\\\&quot;key1\\\&quot;: \\\&quot;\\\&quot;, \\\&quot;key2\\\&quot;: \\\&quot;value2\\\&quot;}\&quot;, \n  \&quot;files\&quot;: {}, \n  \&quot;form\&quot;: {}, \n  \&quot;headers\&quot;: {\n    \&quot;Accept\&quot;: \&quot;*/*\&quot;, \n    \&quot;Accept-Encoding\&quot;: \&quot;gzip, deflate\&quot;, \n    \&quot;Content-Length\&quot;: \&quot;30\&quot;, \n    \&quot;Content-Type\&quot;: \&quot;application/json\&quot;, \n    \&quot;Host\&quot;: \&quot;httpbin.org\&quot;, \n    \&quot;User-Agent\&quot;: \&quot;python-requests/2.34.2\&quot;, \n    \&quot;X-Amzn-Trace-Id\&quot;: \&quot;Root=1-6aa976d0-3f23a0860f2ec4e22ade4130\&quot;\n  }, \n  \&quot;json\&quot;: {\n    \&quot;key1\&quot;: \&quot;\&quot;, \n    \&quot;key2\&quot;: \&quot;value2\&quot;\n  }, \n  \&quot;origin\&quot;: \&quot;49.36.138.210\&quot;, \n  \&quot;url\&quot;: \&quot;https://httpbin.org/post\&quot;\n}\n&quot;,
+  &quot;error&quot;: &quot;&quot;
+}</pre>
+                </div>
+              </div>
+              <p><strong>Assertions:</strong> assert response.status_code == 400, assert response is not None</p>
+              <p><strong>Error:</strong> </p>
+            </section>
+            
+
+            <section class="result-card">
+              <h2>TC-004 — boundary_values</h2>
+              <p><strong>Category:</strong> boundary &nbsp; <strong>Priority:</strong> P2 &nbsp; <strong>Status:</strong> <span class="fail">FAIL</span> &nbsp; <strong>HTTP:</strong> 200</p>
+              <div class="payload-grid">
+                <div>
+                  <h3>Request</h3>
+                  <pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/post&quot;,
+  &quot;headers&quot;: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+  },
+  &quot;body&quot;: {
+    &quot;key1&quot;: &quot;x&quot;,
+    &quot;key2&quot;: &quot;value2&quot;
+  }
+}</pre>
+                </div>
+                <div>
+                  <h3>Response</h3>
+                  <pre>{
+  &quot;status_code&quot;: 200,
+  &quot;response_text&quot;: &quot;{\n  \&quot;args\&quot;: {}, \n  \&quot;data\&quot;: \&quot;{\\\&quot;key1\\\&quot;: \\\&quot;x\\\&quot;, \\\&quot;key2\\\&quot;: \\\&quot;value2\\\&quot;}\&quot;, \n  \&quot;files\&quot;: {}, \n  \&quot;form\&quot;: {}, \n  \&quot;headers\&quot;: {\n    \&quot;Accept\&quot;: \&quot;*/*\&quot;, \n    \&quot;Accept-Encoding\&quot;: \&quot;gzip, deflate\&quot;, \n    \&quot;Content-Length\&quot;: \&quot;31\&quot;, \n    \&quot;Content-Type\&quot;: \&quot;application/json\&quot;, \n    \&quot;Host\&quot;: \&quot;httpbin.org\&quot;, \n    \&quot;User-Agent\&quot;: \&quot;python-requests/2.34.2\&quot;, \n    \&quot;X-Amzn-Trace-Id\&quot;: \&quot;Root=1-6aa976d1-6a90819c6e9d70ee67f4d824\&quot;\n  }, \n  \&quot;json\&quot;: {\n    \&quot;key1\&quot;: \&quot;x\&quot;, \n    \&quot;key2\&quot;: \&quot;value2\&quot;\n  }, \n  \&quot;origin\&quot;: \&quot;49.36.138.210\&quot;, \n  \&quot;url\&quot;: \&quot;https://httpbin.org/post\&quot;\n}\n&quot;,
+  &quot;error&quot;: &quot;&quot;
+}</pre>
+                </div>
+              </div>
+              <p><strong>Assertions:</strong> assert response.status_code == 201, assert request.method == &#x27;POST&#x27;</p>
+              <p><strong>Error:</strong> </p>
+            </section>
+            
+
+            <section class="result-card">
+              <h2>TC-005 — duplicate_or_replay_request</h2>
+              <p><strong>Category:</strong> idempotency &nbsp; <strong>Priority:</strong> P2 &nbsp; <strong>Status:</strong> <span class="fail">FAIL</span> &nbsp; <strong>HTTP:</strong> 200</p>
+              <div class="payload-grid">
+                <div>
+                  <h3>Request</h3>
+                  <pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/post&quot;,
+  &quot;headers&quot;: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+  },
+  &quot;body&quot;: {
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value2&quot;
+  }
+}</pre>
+                </div>
+                <div>
+                  <h3>Response</h3>
+                  <pre>{
+  &quot;status_code&quot;: 200,
+  &quot;response_text&quot;: &quot;{\n  \&quot;args\&quot;: {}, \n  \&quot;data\&quot;: \&quot;{\\\&quot;key1\\\&quot;: \\\&quot;value1\\\&quot;, \\\&quot;key2\\\&quot;: \\\&quot;value2\\\&quot;}\&quot;, \n  \&quot;files\&quot;: {}, \n  \&quot;form\&quot;: {}, \n  \&quot;headers\&quot;: {\n    \&quot;Accept\&quot;: \&quot;*/*\&quot;, \n    \&quot;Accept-Encoding\&quot;: \&quot;gzip, deflate\&quot;, \n    \&quot;Content-Length\&quot;: \&quot;36\&quot;, \n    \&quot;Content-Type\&quot;: \&quot;application/json\&quot;, \n    \&quot;Host\&quot;: \&quot;httpbin.org\&quot;, \n    \&quot;User-Agent\&quot;: \&quot;python-requests/2.34.2\&quot;, \n    \&quot;X-Amzn-Trace-Id\&quot;: \&quot;Root=1-6aa976d2-633a7b2a5b25feb5778878f0\&quot;\n  }, \n  \&quot;json\&quot;: {\n    \&quot;key1\&quot;: \&quot;value1\&quot;, \n    \&quot;key2\&quot;: \&quot;value2\&quot;\n  }, \n  \&quot;origin\&quot;: \&quot;49.36.138.210\&quot;, \n  \&quot;url\&quot;: \&quot;https://httpbin.org/post\&quot;\n}\n&quot;,
+  &quot;error&quot;: &quot;&quot;
+}</pre>
+                </div>
+              </div>
+              <p><strong>Assertions:</strong> assert response.status_code == 201, assert response is not None</p>
+              <p><strong>Error:</strong> </p>
+            </section>
+            
+
+            <section class="result-card">
+              <h2>TC-006 — unauthorized_request</h2>
+              <p><strong>Category:</strong> security &nbsp; <strong>Priority:</strong> P0 &nbsp; <strong>Status:</strong> <span class="fail">FAIL</span> &nbsp; <strong>HTTP:</strong> 200</p>
+              <div class="payload-grid">
+                <div>
+                  <h3>Request</h3>
+                  <pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/post&quot;,
+  &quot;headers&quot;: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+  },
+  &quot;body&quot;: {
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value2&quot;
+  }
+}</pre>
+                </div>
+                <div>
+                  <h3>Response</h3>
+                  <pre>{
+  &quot;status_code&quot;: 200,
+  &quot;response_text&quot;: &quot;{\n  \&quot;args\&quot;: {}, \n  \&quot;data\&quot;: \&quot;{\\\&quot;key1\\\&quot;: \\\&quot;value1\\\&quot;, \\\&quot;key2\\\&quot;: \\\&quot;value2\\\&quot;}\&quot;, \n  \&quot;files\&quot;: {}, \n  \&quot;form\&quot;: {}, \n  \&quot;headers\&quot;: {\n    \&quot;Accept\&quot;: \&quot;*/*\&quot;, \n    \&quot;Accept-Encoding\&quot;: \&quot;gzip, deflate\&quot;, \n    \&quot;Content-Length\&quot;: \&quot;36\&quot;, \n    \&quot;Content-Type\&quot;: \&quot;application/json\&quot;, \n    \&quot;Host\&quot;: \&quot;httpbin.org\&quot;, \n    \&quot;User-Agent\&quot;: \&quot;python-requests/2.34.2\&quot;, \n    \&quot;X-Amzn-Trace-Id\&quot;: \&quot;Root=1-6aa976d3-6eb16da0023fc8824e0a1c13\&quot;\n  }, \n  \&quot;json\&quot;: {\n    \&quot;key1\&quot;: \&quot;value1\&quot;, \n    \&quot;key2\&quot;: \&quot;value2\&quot;\n  }, \n  \&quot;origin\&quot;: \&quot;49.36.138.210\&quot;, \n  \&quot;url\&quot;: \&quot;https://httpbin.org/post\&quot;\n}\n&quot;,
+  &quot;error&quot;: &quot;&quot;
+}</pre>
+                </div>
+              </div>
+              <p><strong>Assertions:</strong> assert response.status_code == 401, assert response is not None</p>
+              <p><strong>Error:</strong> </p>
+            </section>
+            
+      </div>
+      </body>
+    </html>

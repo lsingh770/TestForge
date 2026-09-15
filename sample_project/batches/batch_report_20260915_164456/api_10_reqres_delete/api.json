@@ -1,0 +1,16 @@
+{
+  "name": "ReqRes DELETE",
+  "description": "",
+  "method": "DELETE",
+  "url": "https://reqres.in/api/users/2",
+  "headers": {
+    "Content-Type": "application/json",
+    "x-api-key": "reqres-free-v1"
+  },
+  "body": null,
+  "auth": "Header: x-api-key: reqres-free-v1",
+  "expected_status": 204,
+  "source_catalog_id": 2,
+  "source_service": "ReqRes",
+  "resource": "/users"
+}

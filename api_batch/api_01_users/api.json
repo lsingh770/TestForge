@@ -1,0 +1,14 @@
+{
+  "name": "Users API",
+  "method": "POST",
+  "url": "http://localhost:8001/users",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "name": "Lokesh",
+    "email": "lokesh@example.com",
+    "age": 35
+  },
+  "expected_status": 200
+}

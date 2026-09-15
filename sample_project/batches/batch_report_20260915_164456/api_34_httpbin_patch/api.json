@@ -1,0 +1,17 @@
+{
+  "name": "httpbin PATCH",
+  "description": "",
+  "method": "PATCH",
+  "url": "https://httpbin.org/patch",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "key1": "patched1"
+  },
+  "auth": "None",
+  "expected_status": 200,
+  "source_catalog_id": 7,
+  "source_service": "httpbin",
+  "resource": "/"
+}

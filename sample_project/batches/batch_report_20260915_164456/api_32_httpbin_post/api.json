@@ -1,0 +1,18 @@
+{
+  "name": "httpbin POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://httpbin.org/post",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "key1": "value1",
+    "key2": "value2"
+  },
+  "auth": "None",
+  "expected_status": 201,
+  "source_catalog_id": 7,
+  "source_service": "httpbin",
+  "resource": "/"
+}

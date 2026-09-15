@@ -1,0 +1,18 @@
+{
+  "name": "Restful-Booker PATCH",
+  "description": "",
+  "method": "PATCH",
+  "url": "https://restful-booker.herokuapp.com/booking/1 (requires auth token cookie)",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "firstname": "James",
+    "lastname": "Smith"
+  },
+  "auth": "Token via POST /auth, then header: Cookie: token={token}",
+  "expected_status": 200,
+  "source_catalog_id": 9,
+  "source_service": "Restful-Booker",
+  "resource": "/booking"
+}

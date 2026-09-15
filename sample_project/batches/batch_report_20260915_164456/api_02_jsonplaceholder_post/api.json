@@ -1,0 +1,19 @@
+{
+  "name": "JSONPlaceholder POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://jsonplaceholder.typicode.com/posts",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "title": "foo",
+    "body": "bar",
+    "userId": 1
+  },
+  "auth": "None",
+  "expected_status": 201,
+  "source_catalog_id": 1,
+  "source_service": "JSONPlaceholder",
+  "resource": "/posts"
+}

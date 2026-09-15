@@ -1,0 +1,108 @@
+{
+  "api": {
+    "name": "Users API",
+    "method": "POST",
+    "url": "http://localhost:8001/users",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "Lokesh",
+      "email": "lokesh@example.com",
+      "age": 35
+    },
+    "expected_status": 200
+  },
+  "tests": [
+    {
+      "id": "TC-001",
+      "name": "valid_request",
+      "category": "positive",
+      "method": "POST",
+      "url": "http://localhost:8001/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "name": "Lokesh",
+        "email": "lokesh@example.com",
+        "age": 35
+      },
+      "assertions": [
+        "assert response.status_code == 200",
+        "assert request.method == 'POST'",
+        "assert response is not None"
+      ],
+      "priority": "P1",
+      "metadata": {
+        "test_id": "TC-001",
+        "category": "positive",
+        "priority": "P1",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-002",
+      "name": "missing_required_fields",
+      "category": "negative",
+      "method": "POST",
+      "url": "http://localhost:8001/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {},
+      "assertions": [
+        "assert response.status_code != 200",
+        "assert response is not None"
+      ],
+      "priority": "P0",
+      "metadata": {
+        "test_id": "TC-002",
+        "category": "negative",
+        "priority": "P0",
+        "severity": "P1",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-003",
+      "name": "boundary_case",
+      "category": "boundary",
+      "method": "POST",
+      "url": "http://localhost:8001/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "name": "Lokesh",
+        "email": "lokesh@example.com",
+        "age": 35
+      },
+      "assertions": [
+        "assert response.status_code == 200",
+        "assert request.method == 'POST'"
+      ],
+      "priority": "P2",
+      "metadata": {
+        "test_id": "TC-003",
+        "category": "boundary",
+        "priority": "P2",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    }
+  ]
+}

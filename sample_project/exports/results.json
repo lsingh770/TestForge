@@ -1,0 +1,108 @@
+[
+  {
+    "id": "TC-001",
+    "name": "valid_request",
+    "category": "positive",
+    "priority": "P1",
+    "metadata": {
+      "test_id": "TC-001",
+      "category": "positive",
+      "priority": "P1",
+      "severity": "P2",
+      "description": "Generated from API contract and input example",
+      "source": "manual_input",
+      "confidence": "HIGH",
+      "ai_generated": true,
+      "human_modified": false
+    },
+    "passed": false,
+    "status_code": null,
+    "response_text": "",
+    "error": "",
+    "request": {
+      "method": "POST",
+      "url": "http://localhost:8001/users",
+      "headers": {},
+      "body": null
+    },
+    "expected": {
+      "assertions": [
+        "assert response.status_code == 200",
+        "assert request.method == 'POST'",
+        "assert response is not None"
+      ],
+      "status_code": 200
+    },
+    "summary": "Failed"
+  },
+  {
+    "id": "TC-002",
+    "name": "missing_required_fields",
+    "category": "negative",
+    "priority": "P0",
+    "metadata": {
+      "test_id": "TC-002",
+      "category": "negative",
+      "priority": "P0",
+      "severity": "P1",
+      "description": "Generated from API contract and input example",
+      "source": "manual_input",
+      "confidence": "HIGH",
+      "ai_generated": true,
+      "human_modified": false
+    },
+    "passed": false,
+    "status_code": null,
+    "response_text": "",
+    "error": "invalid literal for int() with base 10: 'assertresponse.status_code!=200'",
+    "request": {
+      "method": "POST",
+      "url": "http://localhost:8001/users",
+      "headers": {},
+      "body": null
+    },
+    "expected": {
+      "assertions": [
+        "assert response.status_code != 200",
+        "assert response is not None"
+      ],
+      "status_code": null
+    },
+    "summary": "Failed"
+  },
+  {
+    "id": "TC-003",
+    "name": "boundary_case",
+    "category": "boundary",
+    "priority": "P2",
+    "metadata": {
+      "test_id": "TC-003",
+      "category": "boundary",
+      "priority": "P2",
+      "severity": "P2",
+      "description": "Generated from API contract and input example",
+      "source": "manual_input",
+      "confidence": "HIGH",
+      "ai_generated": true,
+      "human_modified": false
+    },
+    "passed": false,
+    "status_code": null,
+    "response_text": "",
+    "error": "",
+    "request": {
+      "method": "POST",
+      "url": "http://localhost:8001/users",
+      "headers": {},
+      "body": null
+    },
+    "expected": {
+      "assertions": [
+        "assert response.status_code == 200",
+        "assert request.method == 'POST'"
+      ],
+      "status_code": 200
+    },
+    "summary": "Failed"
+  }
+]

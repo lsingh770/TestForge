@@ -1,0 +1,21 @@
+{
+  "name": "Fake Store API POST",
+  "description": "",
+  "method": "POST",
+  "url": "https://fakestoreapi.com/products",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "title": "test product",
+    "price": 13.5,
+    "description": "a nice product",
+    "image": "https://example.com/image.jpg",
+    "category": "electronics"
+  },
+  "auth": "None",
+  "expected_status": 201,
+  "source_catalog_id": 4,
+  "source_service": "Fake Store API",
+  "resource": "/products"
+}

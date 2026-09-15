@@ -1,0 +1,7 @@
+{
+  "name": "Products API",
+  "method": "GET",
+  "url": "http://localhost:8001/products",
+  "headers": {},
+  "expected_status": 200
+}

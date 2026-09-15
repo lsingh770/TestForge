@@ -1,0 +1,15 @@
+{
+  "name": "CrudCrud DELETE",
+  "description": "",
+  "method": "DELETE",
+  "url": "https://crudcrud.com/api/{unique_id}/items/{id}",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": null,
+  "auth": "None (unique URL from crudcrud.com acts as the key)",
+  "expected_status": 204,
+  "source_catalog_id": 10,
+  "source_service": "CrudCrud",
+  "resource": "/items"
+}

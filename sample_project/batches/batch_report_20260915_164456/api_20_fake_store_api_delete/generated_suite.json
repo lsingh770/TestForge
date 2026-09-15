@@ -1,0 +1,155 @@
+{
+  "api": {
+    "name": "Fake Store API DELETE",
+    "description": "",
+    "method": "DELETE",
+    "url": "https://fakestoreapi.com/products/1",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": null,
+    "auth": "None",
+    "expected_status": 204,
+    "source_catalog_id": 4,
+    "source_service": "Fake Store API",
+    "resource": "/products"
+  },
+  "tests": [
+    {
+      "id": "TC-001",
+      "name": "valid_request",
+      "category": "positive",
+      "method": "DELETE",
+      "url": "https://fakestoreapi.com/products/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": null,
+      "assertions": [
+        "assert response.status_code == 204",
+        "assert request.method == 'DELETE'",
+        "assert response is not None"
+      ],
+      "priority": "P1",
+      "metadata": {
+        "test_id": "TC-001",
+        "category": "positive",
+        "priority": "P1",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-002",
+      "name": "missing_required_fields",
+      "category": "negative",
+      "method": "DELETE",
+      "url": "https://fakestoreapi.com/products/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": null,
+      "assertions": [
+        "assert response.status_code == 400",
+        "assert response is not None"
+      ],
+      "priority": "P0",
+      "metadata": {
+        "test_id": "TC-002",
+        "category": "negative",
+        "priority": "P0",
+        "severity": "P1",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-003",
+      "name": "invalid_field_value",
+      "category": "negative",
+      "method": "DELETE",
+      "url": "https://fakestoreapi.com/products/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": null,
+      "assertions": [
+        "assert response.status_code == 400",
+        "assert response is not None"
+      ],
+      "priority": "P1",
+      "metadata": {
+        "test_id": "TC-003",
+        "category": "negative",
+        "priority": "P1",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-004",
+      "name": "boundary_values",
+      "category": "boundary",
+      "method": "DELETE",
+      "url": "https://fakestoreapi.com/products/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": null,
+      "assertions": [
+        "assert response.status_code == 204",
+        "assert request.method == 'DELETE'"
+      ],
+      "priority": "P2",
+      "metadata": {
+        "test_id": "TC-004",
+        "category": "boundary",
+        "priority": "P2",
+        "severity": "P2",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    },
+    {
+      "id": "TC-005",
+      "name": "unauthorized_request",
+      "category": "security",
+      "method": "DELETE",
+      "url": "https://fakestoreapi.com/products/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": null,
+      "assertions": [
+        "assert response.status_code == 401",
+        "assert response is not None"
+      ],
+      "priority": "P0",
+      "metadata": {
+        "test_id": "TC-005",
+        "category": "security",
+        "priority": "P0",
+        "severity": "P1",
+        "description": "Generated from API contract and input example",
+        "source": "manual_input",
+        "confidence": "HIGH",
+        "ai_generated": true,
+        "human_modified": false
+      }
+    }
+  ]
+}

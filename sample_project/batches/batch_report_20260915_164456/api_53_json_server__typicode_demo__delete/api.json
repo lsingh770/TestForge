@@ -1,0 +1,15 @@
+{
+  "name": "JSON Server (typicode demo) DELETE",
+  "description": "",
+  "method": "DELETE",
+  "url": "https://my-json-server.typicode.com/typicode/demo/posts/1",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": null,
+  "auth": "None (read-only for the public demo; writes are simulated, not persisted)",
+  "expected_status": 204,
+  "source_catalog_id": 11,
+  "source_service": "JSON Server (typicode demo)",
+  "resource": "/posts"
+}

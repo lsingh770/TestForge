@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TestForge Dashboard</title>
+    <style>
+      body { font-family: Arial, sans-serif; background: #f4f7fb; margin: 0; padding: 32px; }
+      .container { max-width: 1000px; margin: 0 auto; }
+      .cards { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+      .card { background: white; border-radius: 12px; padding: 18px 22px; min-width: 160px; box-shadow: 0 4px 12px rgba(0,0,0,.04); }
+      .card .label { color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+      .card .value { font-size: 32px; margin-top: 6px; }
+      table { width: 100%; border-collapse: collapse; background: white; }
+      th, td { border: 1px solid #dbe3ee; padding: 10px; text-align: left; }
+      th { background: #eef2f9; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>TestForge Dashboard</h1>
+      <div class="cards">
+        <div class="card"><div class="label">Total</div><div class="value">3</div></div>
+        <div class="card"><div class="label">Passed</div><div class="value">0</div></div>
+        <div class="card"><div class="label">Failed</div><div class="value">3</div></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Category</th><th>Priority</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TC-001</td><td>valid_request</td><td>positive</td><td>P1</td><td>FAIL</td></tr>
+<tr><td>TC-002</td><td>missing_required_fields</td><td>negative</td><td>P0</td><td>FAIL</td></tr>
+<tr><td>TC-003</td><td>boundary_case</td><td>boundary</td><td>P2</td><td>FAIL</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
