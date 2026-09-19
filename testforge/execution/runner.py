@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import time
 from html import escape
 from pathlib import Path
 from typing import Any
@@ -9,56 +10,62 @@ import requests
 
 
 def execute_generated_tests(tests: list[dict[str, Any]], base_url: str | None = None) -> list[dict[str, Any]]:
-    results: list[dict[str, Any]] = []
+    return list(stream_generated_tests(tests, base_url=base_url))
+
+
+def stream_generated_tests(tests: list[dict[str, Any]], base_url: str | None = None):
     for test in tests:
-        method = str(test.get("method", "GET")).upper()
-        request_url = str(test.get("url") or "").strip()
-        if request_url.startswith(("http://", "https://")):
-            target_url = request_url
-        elif base_url and request_url:
-            target_url = base_url.rstrip("/") + "/" + request_url.lstrip("/")
-        elif base_url:
-            target_url = base_url
-        else:
-            raise ValueError(f"No target URL provided for test {test.get('id', 'TC-000')}")
+        yield _execute_generated_test(test, base_url=base_url)
 
-        payload = test.get("body")
-        headers = test.get("headers") or {}
 
-        try:
-            response = requests.request(method, target_url, json=payload if payload is not None else None, headers=headers, timeout=10)
-            passed = all(_evaluate_assertion(response, assertion) for assertion in test.get("assertions", []))
-        except Exception as exc:  # pragma: no cover - runtime guard
-            response = None
-            passed = False
-            exc_text = str(exc)
-        else:
-            exc_text = ""
+def _execute_generated_test(test: dict[str, Any], base_url: str | None = None) -> dict[str, Any]:
+    method = str(test.get("method", "GET")).upper()
+    request_url = str(test.get("url") or "").strip()
+    if request_url.startswith(("http://", "https://")):
+        target_url = request_url
+    elif base_url and request_url:
+        target_url = base_url.rstrip("/") + "/" + request_url.lstrip("/")
+    elif base_url:
+        target_url = base_url
+    else:
+        raise ValueError(f"No target URL provided for test {test.get('id', 'TC-000')}")
 
-        result = {
-            "id": test.get("id", "TC-000"),
-            "name": test.get("name", "unnamed"),
-            "category": test.get("category", "functional"),
-            "priority": test.get("priority", "P2"),
-            "metadata": test.get("metadata", {}),
-            "passed": passed,
-            "status_code": getattr(response, "status_code", None) if response else None,
-            "response_text": getattr(response, "text", "") if response else "",
-            "error": exc_text,
-            "request": {
-                "method": method,
-                "url": target_url,
-                "headers": headers,
-                "body": payload,
-            },
-            "expected": {
-                "assertions": test.get("assertions", []),
-                "status_code": _extract_expected_status(test.get("assertions", [])),
-            },
-            "summary": "Passed" if passed else "Failed",
-        }
-        results.append(result)
-    return results
+    payload = test.get("body")
+    headers = test.get("headers") or {}
+    started_at = time.perf_counter()
+    try:
+        response = requests.request(method, target_url, json=payload if payload is not None else None, headers=headers, timeout=10)
+        passed = all(_evaluate_assertion(response, assertion) for assertion in test.get("assertions", []))
+    except Exception as exc:  # pragma: no cover - runtime guard
+        response = None
+        passed = False
+        exc_text = str(exc)
+    else:
+        exc_text = ""
+
+    return {
+        "id": test.get("id", "TC-000"),
+        "name": test.get("name", "unnamed"),
+        "category": test.get("category", "functional"),
+        "priority": test.get("priority", "P2"),
+        "metadata": test.get("metadata", {}),
+        "passed": passed,
+        "status_code": getattr(response, "status_code", None) if response else None,
+        "response_text": getattr(response, "text", "") if response else "",
+        "error": exc_text,
+        "elapsed_ms": round((time.perf_counter() - started_at) * 1000, 2),
+        "request": {
+            "method": method,
+            "url": target_url,
+            "headers": headers,
+            "body": payload,
+        },
+        "expected": {
+            "assertions": test.get("assertions", []),
+            "status_code": _extract_expected_status(test.get("assertions", [])),
+        },
+        "summary": "Passed" if passed else "Failed",
+    }
 
 
 def _extract_expected_status(assertions: list[str]) -> int | None:

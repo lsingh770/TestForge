@@ -1,3 +1,5 @@
+import json
+
 from testforge.generation.test_generator import generate_tests
 
 
@@ -223,3 +225,30 @@ def test_config_uses_environment_specific_defaults(monkeypatch):
 
     assert config.environment == "qa"
     assert config.base_url == "https://qa.example.com"
+
+
+def test_run_stream_returns_one_sse_result_per_test(tmp_path, monkeypatch):
+    from importlib import import_module
+    from fastapi.testclient import TestClient
+
+    ui = import_module("testforge.ui.app")
+    suite_path = tmp_path / "suite.json"
+    suite_path.write_text(json.dumps({
+        "tests": [
+            {"id": "TC-1", "name": "first", "url": "https://example.com/1", "assertions": []},
+            {"id": "TC-2", "name": "second", "url": "https://example.com/2", "assertions": []},
+        ]
+    }), encoding="utf-8")
+
+    class Response:
+        status_code = 200
+        text = "{}"
+
+    monkeypatch.setattr(ui, "SUITE_PATH", suite_path)
+    monkeypatch.setattr("testforge.execution.runner.requests.request", lambda *args, **kwargs: Response())
+
+    response = TestClient(ui.app).get("/api/run/stream")
+
+    assert response.headers["content-type"].startswith("text/event-stream")
+    assert response.text.count("data:") == 3
+    assert "event: done" in response.text

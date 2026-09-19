@@ -6,12 +6,15 @@
 Returns service health status.
 
 ### POST /api/generate
-Accepts either:
-
-Returns:
+Accepts a JSON object with an `api` specification. The response contains the original API specification, generated tests, and the path of the persisted suite.
 
 ### POST /api/run
-Consumes a test suite and returns execution results.
+Accepts `{ "tests": [...], "base_url": "http://localhost:8001" }`. It executes each test and returns result objects plus paths for the generated report, dashboard, and exports.
+
+Each result includes the test identity, pass/fail status, HTTP status, response text, request details, evaluated assertions, and `elapsed_ms` request duration.
+
+### GET /api/run/stream
+Streams the same suite results as Server-Sent Events. Each completed test is sent as `data: {JSON}` followed by a blank line; the final event is `event: done` with an empty JSON object.
 
 ## Example payload
 

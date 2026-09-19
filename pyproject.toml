@@ -16,9 +16,33 @@ dependencies = [
   "httpx>=0.27.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.10.0",
+  "ruff>=0.6.0",
+]
+
 [project.scripts]
 api-tester = "testforge.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["testforge*", "frontend*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true

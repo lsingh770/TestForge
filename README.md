@@ -4,6 +4,13 @@ TestForge is an AI-powered REST API testing platform MVP. It focuses on the core
 
 ## Features
 
+- Parse cURL and OpenAPI input into normalized API specifications.
+- Generate deterministic positive, negative, and contract-oriented test cases.
+- Execute generated suites against absolute URLs or a configured base URL.
+- Evaluate status-code, response-presence, request-method, and JSON-key assertions.
+- Produce HTML reports, dashboard data, and CSV/JSON/XML exports.
+- Run individual suites or batches of API definitions from the command line.
+- Browse generated suites and batch reports through the FastAPI web UI.
 
 ## Quick start
 
@@ -40,6 +47,24 @@ TestForge is an AI-powered REST API testing platform MVP. It focuses on the core
 
 ## Project structure
 
+```text
+testforge/
+   api/                 API-facing application modules
+   contracts/           OpenAPI and catalog loaders
+   execution/           HTTP execution and HTML reporting
+   exporters/           CSV, JSON, and XML result exporters
+   generation/          Deterministic test generation
+   parsers/             cURL parsing
+   ui/                  FastAPI application and browser dashboard
+   batch_runner.py      Batch suite orchestration
+   cli.py               api-tester command-line entry point
+   config.py            Environment-based configuration
+   models.py            Shared data models
+frontend/              Dashboard HTML helpers
+tests/                 Regression tests
+demo_api.py            Local demo service
+sample_project/        Example suite and generated local output
+```
 
 ## Notes
 
