@@ -50,8 +50,8 @@ def _execute_generated_test(test: dict[str, Any], base_url: str | None = None) -
         "priority": test.get("priority", "P2"),
         "metadata": test.get("metadata", {}),
         "passed": passed,
-        "status_code": getattr(response, "status_code", None) if response else None,
-        "response_text": getattr(response, "text", "") if response else "",
+        "status_code": getattr(response, "status_code", None) if response is not None else None,
+        "response_text": getattr(response, "text", "") if response is not None else "",
         "error": exc_text,
         "elapsed_ms": round((time.perf_counter() - started_at) * 1000, 2),
         "request": {

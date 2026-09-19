@@ -11,6 +11,7 @@ TestForge is an AI-powered REST API testing platform MVP. It focuses on the core
 - Produce HTML reports, dashboard data, and CSV/JSON/XML exports.
 - Run individual suites or batches of API definitions from the command line.
 - Browse generated suites and batch reports through the FastAPI web UI.
+- Stream test results live over Server-Sent Events as each request completes, with a live pass/fail count and response-time chart in the browser dashboard.
 
 ## Quick start
 
@@ -18,6 +19,7 @@ TestForge is an AI-powered REST API testing platform MVP. It focuses on the core
    ```bash
    python demo_api.py
    ```
+   This starts on `http://localhost:8001`. Every route except `/health` and `/login` requires an `Authorization: Bearer demo-token` header — requests without it will get a `401`, which is expected and is itself one of the generated negative test cases.
 
 2. Generate a test suite:
    ```bash
@@ -49,7 +51,6 @@ TestForge is an AI-powered REST API testing platform MVP. It focuses on the core
 
 ```text
 testforge/
-   api/                 API-facing application modules
    contracts/           OpenAPI and catalog loaders
    execution/           HTTP execution and HTML reporting
    exporters/           CSV, JSON, and XML result exporters

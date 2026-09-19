@@ -107,4 +107,4 @@ def get_order(order_id: int, authorization: str | None = Header(default=None, al
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("demo_api:app", host="0.0.0.0", port=8002, reload=False)
+    uvicorn.run("demo_api:app", host="0.0.0.0", port=8001, reload=False)
