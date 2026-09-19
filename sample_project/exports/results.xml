@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testforge" tests="3" failures="3">
-<testcase classname="positive" name="valid_request" time="0"><failure message="">Failed</failure></testcase>
-<testcase classname="negative" name="missing_required_fields" time="0"><failure message="invalid literal for int() with base 10: 'assertresponse.status_code!=200'">Failed</failure></testcase>
-<testcase classname="boundary" name="boundary_case" time="0"><failure message="">Failed</failure></testcase>
-</testsuite>

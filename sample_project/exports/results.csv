@@ -1,4 +1,0 @@
-id,name,category,priority,passed,status_code,summary,error
-TC-001,valid_request,positive,P1,False,,Failed,
-TC-002,missing_required_fields,negative,P0,False,,Failed,invalid literal for int() with base 10: 'assertresponse.status_code!=200'
-TC-003,boundary_case,boundary,P2,False,,Failed,
